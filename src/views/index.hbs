@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+    <title>Cricket Result</title>
+</head>
+
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    nav {
+        background-color: rgba(20, 20, 20, 0.9);
+    }
+
+    nav h1 {
+        color: red;
+        font-family: 'Rubik Wet Paint', cursive;
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="navbar mx-5">
+        <h1>CRICKET RESULT</h1>
+        </div>
+    </nav>
+    <div class="main">
+        <h3>Get the Cricket Match Result</h3>
+    </div>
+    <div class="container1">
+        <input type="date" id="dateInput" min="01-01-2021">
+        <input type="submit" id="submitbtn" value="Show Result">
+    </div>
+    <div id="show">
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+</body>
+<script>
+
+
+    const dateInput = document.getElementById("dateInput");
+    const submitbtn = document.getElementById("submitbtn");
+    const show = document.getElementById("show");
+    const today_date = new Date();
+    let match_title = "match";
+    let venue = "venue";
+    let match_date = "date";
+    let result = "result";
+    dateInput.max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
+    submitbtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        let date = dateInput.value;
+        show.innerHTML = ``
+        console.log(date)
+        if (date == "") {
+            show.innerHTML += "please enter date."
+        }
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Host': 'cricket-live-data.p.rapidapi.com',
+                'X-RapidAPI-Key': '213837e410msh864bfa2740321aap131866jsnd50fe9d1c817'
+            }
+        };
+
+        fetch(`https://cricket-live-data.p.rapidapi.com/results-by-date/${date}`, options)
+            .then(response => response.json())
+            .then(response => {
+                for (let i = 0; i < response["results"].length; i++) {
+                    match_title = response["results"][i]["match_title"]
+                    venue = response["results"][i]["venue"]
+                    match_date = response["results"][i]["date"]
+                    result = response["results"][i]["result"]
+                    console.log("\nNew Match")
+                    console.log(match_title)
+                    console.log(venue)
+                    console.log(match_date)
+                    console.log(result)
+                    show.innerHTML += `<h1>Match ${i + 1} result</h1>
+                    <strong>Match Title : </strong><p>${match_title}</p>
+                    <strong>Match Venue : </strong><p>${venue}</p>
+                    <strong>Match Result : </strong><p>${result}</p>`
+                }
+            })
+            .catch(err => console.error(err));
+
+    })
+
+</script>
+
+</html>
