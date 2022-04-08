@@ -1,0 +1,19 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+nav {
+    background-color: rgba(20, 20, 20, 0.9);
+}
+main{
+    background: url('bghome.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 90vh;
+}
+nav h1 {
+    color: red;
+    font-family: 'Rubik Wet Paint', cursive;
+}
