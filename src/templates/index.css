@@ -3,6 +3,10 @@
     padding: 0px;
 }
 
+a{
+    text-decoration: none;
+}
+
 nav {
     background-color: rgba(20, 20, 20, 0.9);
 }
@@ -16,4 +20,60 @@ main{
 nav h1 {
     color: red;
     font-family: 'Rubik Wet Paint', cursive;
+}
+
+.main{
+    padding-top: 25vh;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+button, #submitbtn, #dateInput{
+    color: red;
+    background-color: rgb(20, 20, 20, 0.9);
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 5px 8px;
+    box-shadow: 3px 5px 5px black;
+}
+
+button:hover, #submitbtn:hover, #dateInput:hover{
+    color: rgb(20, 20, 20, 0.9);
+    background-color: red;
+    box-shadow: 3px 5px 5px rgba(255, 0, 0, 0.905);
+    font-size: 105%;
+    border: 1px solid black;
+}
+
+.container1{
+    padding-top: 20vh;
+    padding-bottom: 20vh;
+    text-align: center;
+    background-color: rgb(25, 25, 25);
+}
+
+.container2{
+    background-color: rgb(25, 25, 25);
+    color: red;
+}
+
+#show h1{
+    text-align: center;
+    font-family: 'Source Serif Pro', serif;
+}
+footer{
+    background-color: rgb(20, 20, 20);
+    color: red;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+}
+
+footer p{
+    text-align: center;
+    margin: 0;
+    padding: 3px 0px;
 }
