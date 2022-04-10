@@ -1,6 +1,10 @@
+
 const dateInput = document.getElementById("dateInput");
 const submitbtn = document.getElementById("submitbtn");
 const show = document.getElementById("show");
+
+
+
 const today_date = new Date();
 let match_title = "match";
 let venue = "venue";
@@ -15,6 +19,7 @@ submitbtn.addEventListener("click", (e) => {
     if (date == "") {
         show.innerHTML += "please enter date."
     }
+
     const options = {
         method: 'GET',
         headers: {
@@ -22,8 +27,7 @@ submitbtn.addEventListener("click", (e) => {
             'X-RapidAPI-Key': '213837e410msh864bfa2740321aap131866jsnd50fe9d1c817'
         }
     };
-
-
+    
     fetch(`https://cricket-live-data.p.rapidapi.com/results-by-date/${date}`, options)
         .then(response => response.json())
         .then(response => {
@@ -38,11 +42,35 @@ submitbtn.addEventListener("click", (e) => {
                 console.log(match_date)
                 console.log(result)
                 show.innerHTML += `<h1>MATCH ${i + 1} RESULT</h1>
-                    <strong>Match Title : </strong><p>${match_title}</p>
-                    <strong>Match Venue : </strong><p>${venue}</p>
-                    <strong>Match Result : </strong><p>${result}</p>`
+                <table>
+                <tr>
+                <th> Match Title </th>
+                <td> ${match_title} </td>
+                </tr>
+                <tr>
+                <th> Match Venue </th>
+                <td> ${venue} </td>
+                </tr>
+                <tr>
+                <th> Match Result </th>
+                <td> ${result} </td>
+                </tr>
+                </table>`
             }
         })
         .catch(err => console.error(err));
 
 })
+
+let first = 'Get result date by date';
+let second = 'Simple & single page site';
+document.getElementById("type").style.fontWeight="1000";
+var typed = new Typed('#type', {
+  // Waits 1000ms after typing "First"
+  strings: ['', first.fontcolor("orange"), second.fontcolor("orange")],
+  typeSpeed: 100,
+  backSpeed: 150,
+  loop:true
+});
+
+new WOW().init();

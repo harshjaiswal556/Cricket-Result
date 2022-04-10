@@ -8,7 +8,9 @@ a{
 }
 
 nav {
-    background-color: rgba(20, 20, 20, 0.9);
+    background-color: rgba(20, 20, 20, 0.0);
+    position: fixed;
+    width: 100vw;
 }
 main{
     background: url('bghome.jpg');
@@ -60,10 +62,28 @@ button:hover, #submitbtn:hover, #dateInput:hover{
     color: red;
 }
 
+#type:hover{
+    color: red;
+}
+
 #show h1{
     text-align: center;
     font-family: 'Source Serif Pro', serif;
 }
+
+#show table{
+    font-family: 'Source Serif Pro', serif;
+    color: white;
+    display: inline-flex;
+    flex-direction: column;
+}
+#show{
+    padding-bottom: 30px;
+    text-align: center;
+}
+table, th, td {
+    border:1px solid white;
+  }
 footer{
     background-color: rgb(20, 20, 20);
     color: red;
