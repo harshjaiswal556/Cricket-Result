@@ -14,6 +14,9 @@ app.use(express.urlencoded({extended:false}))
 app.get('/', (req, res) => {
     res.render('index')
 })
+app.get('/indexLight', (req, res) => {
+    res.render('indexLight')
+})
 
 app.listen(port, () => {
     console.log("Program successfully executed at port " + port)

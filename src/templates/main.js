@@ -36,11 +36,6 @@ submitbtn.addEventListener("click", (e) => {
                 venue = response["results"][i]["venue"]
                 match_date = response["results"][i]["date"]
                 result = response["results"][i]["result"]
-                console.log("\nNew Match")
-                console.log(match_title)
-                console.log(venue)
-                console.log(match_date)
-                console.log(result)
                 show.innerHTML += `<h1>MATCH ${i + 1} RESULT</h1>
                 <table>
                 <tr>
@@ -67,7 +62,7 @@ let second = 'Simple & single page site';
 document.getElementById("type").style.fontWeight="1000";
 var typed = new Typed('#type', {
   // Waits 1000ms after typing "First"
-  strings: ['', first.fontcolor("orange"), second.fontcolor("orange")],
+  strings: ['', first.fontcolor("red"), second.fontcolor("red")],
   typeSpeed: 100,
   backSpeed: 150,
   loop:true

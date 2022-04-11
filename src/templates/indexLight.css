@@ -38,7 +38,7 @@ nav h1 {
 
 button, #submitbtn, #dateInput{
     color: red;
-    background-color: rgb(20, 20, 20, 0.9);
+    background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid red;
     border-radius: 5px;
     padding: 5px 8px;
@@ -46,25 +46,28 @@ button, #submitbtn, #dateInput{
 }
 
 button:hover, #submitbtn:hover, #dateInput:hover{
-    color: rgb(20, 20, 20, 0.9);
+    color: rgba(255, 255, 255, 0.9);
     background-color: red;
     box-shadow: 3px 5px 5px rgba(255, 0, 0, 0.905);
     font-size: 105%;
-    border: 1px solid black;
+    border: 1px solid rgb(255, 255, 255);
 }
 
 .container1{
     padding-top: 20vh;
     padding-bottom: 20vh;
     text-align: center;
-    background-color: rgb(25, 25, 25);
+    background-color: rgb(255, 255, 255);
 }
 
 .container2{
-    background-color: rgb(25, 25, 25);
+    background-color: rgb(255, 255, 255);
     color: red;
 }
 
+#type:hover{
+    color: red;
+}
 
 #show h1{
     text-align: center;
@@ -73,7 +76,7 @@ button:hover, #submitbtn:hover, #dateInput:hover{
 
 #show table{
     font-family: 'Source Serif Pro', serif;
-    color: white;
+    color: black;
     display: inline-flex;
     flex-direction: column;
 }
@@ -82,14 +85,14 @@ button:hover, #submitbtn:hover, #dateInput:hover{
     text-align: center;
 }
 table, th, td {
-    border:1px solid white;
+    border:1px solid black;
   }
 
-  th, td{
+th, td{
     padding: 2px 5px;
 }
 footer{
-    background-color: rgb(20, 20, 20);
+    background-color: rgb(201, 201, 201);
     color: red;
     width: 100%;
     position: fixed;
